@@ -1,0 +1,115 @@
+//====================================================================================================
+.page {
+    &__calculator {
+        @include adaptiveValue("padding-top", 213,44 );
+        @include adaptiveValue("padding-bottom", 213,64 );
+    }
+}
+.calculator {
+    &__title {
+        @include adaptiveValue("font-size",54 ,34 );
+        line-height: math.div(49 , 54);
+        margin-bottom: rem(32);
+        max-width: rem(753);
+    }
+    &__form {
+        font-family: "Gilroy";
+        font-weight: 400;
+        color: #575757;
+        font-size: rem(16);
+        line-height: math.div(20 , 16);
+    }
+}
+.form-calculator {
+    text-align: left;
+    &__row {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        margin-bottom: 30px;
+        gap: rem(32); 
+        @media (max-width:$mobile){
+            flex-wrap: wrap;
+        } 
+        
+    }
+    &__col {
+        flex: 0 1 33.33%;
+        @media (max-width: em(550)){
+            flex: 1 1 100%;
+              
+        }
+    }
+    &__col_upper {
+        @media (max-width:$mobile){
+            flex: 1 1 100%;
+        }
+
+    }
+    &__input {
+        outline: none;
+        margin-top: rem(24);
+        width: 100%;
+        font-weight: 900;
+        @include adaptiveValue("font-size",30,22 );
+        line-height: math.div(36 , 30);
+        padding: rem(16) rem(24);
+        color: #575757;
+        background: #F3F3F4;
+        border-radius: 16px;
+        height: rem(68);
+        border-bottom: none;
+        align-self: auto;
+        transition: all 0.3s ease 0s;
+        &:focus{
+            border: 2px solid #F3F3F4;;
+            background: transparent;
+        }
+        @media (max-width:$mobile){
+             padding: rem(20); 
+        }
+    }
+    &__range{
+        width: 90%;
+        margin-left: 5%;
+    }
+    &__description {
+        margin-bottom: rem(8);
+    }
+    &__final-value {
+        font-weight: 900;
+        font-family: "Nekst";
+        @include adaptiveValue("font-size", 54, 22);
+        line-height: math.div(49 , 54);
+        color: #333333;
+        &::after{
+            content: ' ₽'
+        }
+    }
+    &__button {
+        @include adaptiveValue("font-size", 30, 22);
+        line-height: math.div(36 , 30);
+        padding: rem(8) rem(10);
+        background: #FF9514;
+        border-radius: 40px;
+        color: #FFFFFF;
+        width: 33.3%;
+        transition: all 0.3s ease 0s;
+        &:hover{
+            background: #111111;
+        }
+        &:active{
+            background: #575757;
+        }
+        @media (max-width:$mobile){
+             flex: 0 1 45%; 
+        }
+        @media (max-width: em(550)){
+            flex: 1 1 100%;
+        }
+    }
+}
+
+//====================================================================================================
+
+

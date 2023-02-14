@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  @@include('html/_head.htm',{ "title":"Calculator" })
+  <body>
+    <div class="wrapper">
+      @@include('html/_header.htm',{})
+      <main class="page">
+        <section class="page__calculator calculator">
+          <div class="calculator__container">
+            <h1 class="calculator__title">
+              Рассчитайте стоимость автомобиля в лизинг
+            </h1>
+            <form class="calculator__form form-calculator" action="#">
+              <div class="form-calculator__row">
+                <div class="form-calculator__col form-calculator__col_upper">
+                  <label for="price-of-avto">Стоимость автомобиля</label>
+                  <input
+                    id="price-of-avto"
+                    autocomplete="off"
+                    type="text"
+                    name="form[]"
+                    value="3300000"
+                    data-error="Помилка"
+                    placeholder=""
+                    class="form-calculator__input"
+                  />
+                  <div
+                    data-from="1500000"
+                    data-to="10000000"
+                    class="form-calculator__range price-of-avto-range"
+                  ></div>
+                </div>
+                <div class="form-calculator__col form-calculator__col_upper">
+                  <label for="initial-fee">Первоначальный взнос</label>
+                  <input
+                    id="initial-fee"
+                    autocomplete="off"
+                    type="text"
+                    name="form[]"
+                    data-error="Помилка"
+                    placeholder=""
+                    class="form-calculator__input"
+                  />
+                  <div class="form-calculator__range initial-fee-range"></div>
+                </div>
+                <div class="form-calculator__col form-calculator__col_upper">
+                  <label for="leasing-term">Срок лизинга</label>
+                  <input
+                    id="leasing-term"
+                    autocomplete="off"
+                    type="text"
+                    name="form[]"
+                    data-error="Помилка"
+                    placeholder=""
+                    class="form-calculator__input"
+                  />
+                  <div
+                    data-from="60"
+                    data-to="120"
+                    class="form-calculator__range leasing-term-range"
+                  ></div>
+                </div>
+              </div>
+              <div class="form-calculator__row">
+                <div class="form-calculator__col">
+                  <p class="form-calculator__description">
+                    Сумма договора лизинга
+                  </p>
+                  <h4 class="form-calculator__final-value">4 467 313</h4>
+                </div>
+                <div class="form-calculator__col">
+                  <p class="form-calculator__description">
+                    Ежемесячный платеж от
+                  </p>
+                  <h4 class="form-calculator__final-value">114 455</h4>
+                </div>
+                <button class="form-calculator__button" type="submit">
+                  Оставить заявку
+                </button>
+              </div>
+            </form>
+          </div>
+        </section>
+      </main>
+      @@include('html/_footer.htm',{})
+    </div>
+
+    @@include('html/_js.htm',{})
+  </body>
+</html>
