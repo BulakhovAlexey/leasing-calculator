@@ -1605,6 +1605,7 @@
         calculatorForm.addEventListener("submit", (e => {
             e.preventDefault();
             calculatorForm.classList.add("_sending");
+            calculatorForm.classList.add("_disabled");
             setTimeout((() => {
                 calculatorForm.classList.remove("_sending");
                 const avtoPrice = document.getElementById("price-of-avto").value.replace(/ /g, "");
@@ -1620,9 +1621,7 @@
                     feePerMounth
                 };
                 alert(JSON.stringify(data));
-                calculatorForm.classList.add("_disabled");
-                calculatorForm.submit();
-            }), 6e3);
+            }), 5e3);
         }));
     })();
 })();
