@@ -390,7 +390,9 @@ svg path {
 }
 
 .form-calculator._disabled .form-calculator__input,
-.form-calculator._disabled .noUi-handle {
+.form-calculator._disabled .noUi-handle,
+.form-calculator._disabled .noUi-connects,
+.form-calculator._disabled .noUi-base {
   pointer-events: none;
 }
 

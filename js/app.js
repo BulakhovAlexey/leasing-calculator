@@ -1607,7 +1607,6 @@
             calculatorForm.classList.add("_sending");
             calculatorForm.classList.add("_disabled");
             setTimeout((() => {
-                calculatorForm.classList.remove("_sending");
                 const avtoPrice = document.getElementById("price-of-avto").value.replace(/ /g, "");
                 const initialFee = document.getElementById("initial-fee").value.replace(/ /g, "");
                 const leasingTerm = document.getElementById("leasing-term").value.replace(/ /g, "");
@@ -1620,6 +1619,7 @@
                     finalSum,
                     feePerMounth
                 };
+                calculatorForm.classList.remove("_sending");
                 alert(JSON.stringify(data));
             }), 5e3);
         }));
