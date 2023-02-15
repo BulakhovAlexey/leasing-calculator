@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Calculator</title>
+	<meta charset="UTF-8" />
+	<meta name="format-detection" content="telephone=no" />
+	<!-- <style>body{opacity: 0;}</style> -->
+	<link rel="icon" type="image/svg+xml" href="img/icons/favicon.svg" />
+	<link rel="icon" type="image/png" href="img/icons/favicon.png" />
+	<link rel="stylesheet" href="css/style.min.css?_v=20230215150336" />
+	<!-- <meta name="robots" content="noindex, nofollow"> -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+
+<body>
+	<div class="wrapper">
+		<header class="header">
+			<div class="header__container">
+			</div>
+		</header>
+		<main class="page">
+			<section class="page__calculator calculator">
+				<div class="calculator__container">
+					<h1 class="calculator__title">
+						Рассчитайте стоимость автомобиля в лизинг
+					</h1>
+					<form class="calculator__form form-calculator" action="#">
+						<div class="form-calculator__row">
+							<div class="form-calculator__col _col-upper">
+								<label for="price-of-avto">Стоимость автомобиля</label>
+								<div class="form-calculator__input-logo-rub">
+									<input id="price-of-avto" autocomplete="off" type="text" name="form[]" value="3300000" class="form-calculator__input" />
+								</div>
+								<div data-from="1500000" data-to="10000000" class="form-calculator__range price-of-avto-range"></div>
+							</div>
+							<div class="form-calculator__col _col-upper">
+								<label for="initial-fee">Первоначальный взнос</label>
+								<div class="form-calculator__input-logo-percent">
+									<span class="form-calculator__percent-num"></span>
+									<input id="initial-fee" autocomplete="off" value="420000" type="text" name="form[]" class="form-calculator__input" />
+								</div>
+								<div class="form-calculator__range initial-fee-range"></div>
+							</div>
+							<div class="form-calculator__col _col-upper">
+								<label for="leasing-term">Срок лизинга</label>
+								<div class="form-calculator__input-logo-mounth">
+									<input id="leasing-term" autocomplete="off" type="text" name="form[]" value="10" class="form-calculator__input" />
+								</div>
+								<div data-from="6" data-to="120" class="form-calculator__range leasing-term-range"></div>
+							</div>
+						</div>
+						<div class="form-calculator__row">
+							<div class="form-calculator__col">
+								<p class="form-calculator__description">
+									Сумма договора лизинга
+								</p>
+								<h4 id="total-sum" class="form-calculator__total"></h4>
+							</div>
+							<div class="form-calculator__col">
+								<p class="form-calculator__description">
+									Ежемесячный платеж от
+								</p>
+								<h4 id="fee-per-mounth" class="form-calculator__total"></h4>
+							</div>
+							<button class="form-calculator__button" type="submit">
+								Оставить заявку
+							</button>
+						</div>
+					</form>
+				</div>
+			</section>
+		</main>
+		<footer class="footer">
+			<div class="footer__container">
+			</div>
+		</footer>
+	</div>
+
+	<script src="js/app.min.js?_v=20230215150336"></script>
+</body>
+
+</html>
