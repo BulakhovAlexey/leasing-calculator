@@ -68,7 +68,7 @@ html {
 	}
 }
 body {
-	// свиток заблокирован
+	// скролл заблокирован
 	.lock & {
 		overflow: hidden;
 		touch-action: none;
@@ -143,8 +143,8 @@ body {
 
 
 // Соединение стилей отдельных блоков
-@import "header";
-@import "footer";
+//@import "header";
+//@import "footer";
 
 //common
 

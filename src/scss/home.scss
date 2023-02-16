@@ -5,6 +5,8 @@
         @include adaptiveValue("padding-bottom", 213,64 );
     }
 }
+//========================================================================================================================================================
+
 .calculator {
     &__title {
         @include adaptiveValue("font-size",54 ,34 );
@@ -20,6 +22,9 @@
         line-height: math.div(20 , 16);
     }
 }
+
+//========================================================================================================================================================
+
 .form-calculator {
     &._disabled{
         opacity: 0.4;
@@ -28,7 +33,9 @@
             pointer-events: none;
         }
         .form-calculator__input,
-        .noUi-handle{
+        .noUi-handle,
+        .noUi-connects,
+        .noUi-base{
             pointer-events: none;
         }
     }
@@ -65,6 +72,14 @@
     }
     &__col {
         flex: 0 1 33.33%;
+        label {
+            display: block;
+            margin-bottom: em(24,16);
+            font-weight: 400;
+            font-family: "Gilroy";
+            @include adaptiveValue("font-size",16 ,14 );
+            line-height: math.div(20 , 16);
+        }
         &._col-upper {
             flex: 0 1 33.33%;
             @media (max-width: em(1119)){
@@ -120,7 +135,7 @@
         position: absolute;
         z-index: 3;
         padding:rem(17);
-        background: $light-gray-color;
+        background: #E0E0E0;
         border-radius: rem(16);
         width: rem(70);
         right: rem(6);
@@ -205,10 +220,12 @@
             height: rem(21);
             right: rem(25);
             top: 29%;
-            background: url('@img/icons/Ellipse 112.svg') no-repeat center;
+            background: url('@img/icons/spinner.svg') no-repeat center;
         }
-        &:hover{
-            background: #111111;
+        @media (any-hover: hover){
+            &:hover{
+                background: #111111;  
+            }
         }
         &:active{
             background: #575757;
@@ -221,14 +238,9 @@
         }
     }
 }
-label {
-    display: block;
-    margin-bottom: em(24,16);
-    font-weight: 400;
-    font-family: "Gilroy";
-    @include adaptiveValue("font-size",16 ,14 );
-    line-height: math.div(20 , 16);
-}
+
+//========================================================================================================================================================
+
 @keyframes spinner {
     0%{
         transform: rotate(0deg);

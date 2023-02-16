@@ -2,7 +2,7 @@
 //window["FLS"] = true;
 
 // Соединение файла основного стиля
-import "../scss/style.scss";
+import "../scss/style.scss"
 
 // ========================================================================================================================================================================================================================================================
 // Функциональность ========================================================================================================================================================================================================================================================
@@ -79,7 +79,7 @@ import "../scss/style.scss";
 // ========================================================================================================================================================================================================================================================
 // Работа с формами ========================================================================================================================================================================================================================================================
 // ========================================================================================================================================================================================================================================================
-import * as flsForms from "./files/forms/forms.js";
+import * as flsForms from "./files/forms/forms.js"
 
 /* Работа с полями формы */
 /* Документация: https://template.fls.guru/template-docs/rabota-s-formami.html */
@@ -222,35 +222,35 @@ flsForms.formFieldsInit({
 /* Мы подключаем файлы с их кодом */
 //import "./files/script.js";
 //============================================================================================================================================================================================================================================
-import * as noUiSlider from "nouislider";
+import * as noUiSlider from "nouislider"
 
 function addSpaces(num) {
-  return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+  return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")
 }
 
 function removeSpaces(str) {
-  return str.split(" ").join("");
+  return str.split(" ").join("")
 }
 
 function updatePercentNum(priceAvto, fee) {
-  let percentNum = document.querySelector(".form-calculator__percent-num");
+  let percentNum = document.querySelector(".form-calculator__percent-num")
   percentNum.innerText =
     Math.round(
       (removeSpaces(fee.value) / removeSpaces(priceAvto.value)) * 100
-    ) + "%";
+    ) + "%"
 }
 
 function updateRangeFromFee(priceAvto) {
-  return removeSpaces(priceAvto.value) * 0.1;
+  return removeSpaces(priceAvto.value) * 0.1
 }
 
 function updateRangeToFee(priceAvto) {
-  return removeSpaces(priceAvto.value) * 0.6;
+  return removeSpaces(priceAvto.value) * 0.6
 }
 
 function updateFinalValues() {
-  const totalSum = document.getElementById("total-sum");
-  const feePerMounth = document.getElementById("fee-per-mounth");
+  const totalSum = document.getElementById("total-sum")
+  const feePerMounth = document.getElementById("fee-per-mounth")
   feePerMounth.innerText = addSpaces(
     Math.round(
       (removeSpaces(priceOfAvtoValue.value) -
@@ -258,19 +258,19 @@ function updateFinalValues() {
         ((0.05 * Math.pow(1.05, leasingTermValue.value)) /
           (Math.pow(1.05, leasingTermValue.value) - 1))
     )
-  );
+  )
   totalSum.innerText = addSpaces(
     Math.round(
       +removeSpaces(initialFeeValue.value) +
         leasingTermValue.value * +removeSpaces(feePerMounth.innerText)
     )
-  );
+  )
 }
 // initial price of avto slider
-const priceOfAvtoSlider = document.querySelector(".price-of-avto-range");
-let priceOfAvtoValue = document.getElementById("price-of-avto");
-let fromPrice = +priceOfAvtoSlider.dataset.from;
-let toPrice = +priceOfAvtoSlider.dataset.to;
+const priceOfAvtoSlider = document.querySelector(".price-of-avto-range")
+let priceOfAvtoValue = document.getElementById("price-of-avto")
+let fromPrice = +priceOfAvtoSlider.dataset.from
+let toPrice = +priceOfAvtoSlider.dataset.to
 if (priceOfAvtoSlider) {
   noUiSlider.create(priceOfAvtoSlider, {
     start: priceOfAvtoValue.value,
@@ -279,15 +279,15 @@ if (priceOfAvtoSlider) {
       min: [fromPrice],
       max: [toPrice],
     },
-  });
+  })
 }
 priceOfAvtoSlider.noUiSlider.on("update", function (values, handle) {
-  priceOfAvtoValue.value = addSpaces(Math.floor(values[handle]));
-});
+  priceOfAvtoValue.value = addSpaces(Math.floor(values[handle]))
+})
 
 // initial fee slider
-const initialFeeSlider = document.querySelector(".initial-fee-range");
-let initialFeeValue = document.getElementById("initial-fee");
+const initialFeeSlider = document.querySelector(".initial-fee-range")
+let initialFeeValue = document.getElementById("initial-fee")
 if (initialFeeSlider) {
   noUiSlider.create(initialFeeSlider, {
     start: initialFeeValue.value,
@@ -296,18 +296,18 @@ if (initialFeeSlider) {
       min: [updateRangeFromFee(priceOfAvtoValue)],
       max: [updateRangeToFee(priceOfAvtoValue)],
     },
-  });
+  })
 }
 initialFeeSlider.noUiSlider.on("update", function (values, handle) {
-  initialFeeValue.value = addSpaces(Math.floor(values[handle]));
-  updatePercentNum(priceOfAvtoValue, initialFeeValue);
-});
+  initialFeeValue.value = addSpaces(Math.floor(values[handle]))
+  updatePercentNum(priceOfAvtoValue, initialFeeValue)
+})
 
 // initial leasing term slider
-const leasingTermSlider = document.querySelector(".leasing-term-range");
-let leasingTermValue = document.getElementById("leasing-term");
-let fromTerm = +leasingTermSlider.dataset.from;
-let toTerm = +leasingTermSlider.dataset.to;
+const leasingTermSlider = document.querySelector(".leasing-term-range")
+let leasingTermValue = document.getElementById("leasing-term")
+let fromTerm = +leasingTermSlider.dataset.from
+let toTerm = +leasingTermSlider.dataset.to
 if (leasingTermSlider) {
   noUiSlider.create(leasingTermSlider, {
     start: leasingTermValue.value,
@@ -316,87 +316,86 @@ if (leasingTermSlider) {
       min: [fromTerm],
       max: [toTerm],
     },
-  });
+  })
 }
 leasingTermSlider.noUiSlider.on("update", function (values, handle) {
-  leasingTermValue.value = Math.floor(values[handle]);
-  updateFinalValues();
-});
+  leasingTermValue.value = Math.floor(values[handle])
+  updateFinalValues()
+})
 
 //обрабтка обновлений слайдеров ползунками
-let sliders = document.querySelectorAll(".form-calculator__range");
+let sliders = document.querySelectorAll(".form-calculator__range")
 sliders.forEach((slider) => {
   slider.noUiSlider.on("update", function (values, handle) {
     if (slider.classList.contains("price-of-avto-range")) {
-      priceOfAvtoValue.value = addSpaces(Math.floor(values[handle]));
+      priceOfAvtoValue.value = addSpaces(Math.floor(values[handle]))
       initialFeeSlider.noUiSlider.updateOptions({
         range: {
           min: updateRangeFromFee(priceOfAvtoValue),
           max: updateRangeToFee(priceOfAvtoValue),
         },
-      });
-      updateFinalValues();
+      })
+      updateFinalValues()
     }
     if (slider.classList.contains("initial-fee-range")) {
-      initialFeeValue.value = addSpaces(Math.floor(values[handle]));
-      updateFinalValues();
+      initialFeeValue.value = addSpaces(Math.floor(values[handle]))
+      updateFinalValues()
     }
-  });
-});
+  })
+})
 
 // обработка события ввода пользователем
-const elements = document.querySelectorAll("._col-upper");
+const elements = document.querySelectorAll("._col-upper")
 elements.forEach((el) => {
   el.addEventListener("change", (e) => {
-    let currentSlider = el.querySelector(".form-calculator__range");
+    let currentSlider = el.querySelector(".form-calculator__range")
     if (currentSlider.classList.contains("price-of-avto-range")) {
-      currentSlider.noUiSlider.set(removeSpaces(e.target.value));
-      updateFinalValues();
+      currentSlider.noUiSlider.set(removeSpaces(e.target.value))
+      updateFinalValues()
     }
     if (currentSlider.classList.contains("initial-fee-range")) {
-      currentSlider.noUiSlider.set(removeSpaces(e.target.value));
-      updatePercentNum(priceOfAvtoValue, initialFeeValue);
-      updateFinalValues();
+      currentSlider.noUiSlider.set(removeSpaces(e.target.value))
+      updatePercentNum(priceOfAvtoValue, initialFeeValue)
+      updateFinalValues()
     }
     if (currentSlider.classList.contains("leasing-term-range")) {
-      console.log("work");
-      currentSlider.noUiSlider.set(removeSpaces(e.target.value));
-      updateFinalValues();
+      console.log("work")
+      currentSlider.noUiSlider.set(removeSpaces(e.target.value))
+      updateFinalValues()
     }
-  });
-});
+  })
+})
 
 //отправка формы и вывод данных формы в формате JSON в alert
-let calculatorForm = document.querySelector(".form-calculator");
+let calculatorForm = document.querySelector(".form-calculator")
 calculatorForm.addEventListener("submit", (e) => {
-  e.preventDefault();
-  calculatorForm.classList.add("_sending");
+  e.preventDefault()
+  calculatorForm.classList.add("_sending")
+  calculatorForm.classList.add("_disabled")
   setTimeout(() => {
-    calculatorForm.classList.remove("_sending");
     const avtoPrice = document
       .getElementById("price-of-avto")
-      .value.replace(/ /g, "");
+      .value.replace(/ /g, "")
     const initialFee = document
       .getElementById("initial-fee")
-      .value.replace(/ /g, "");
+      .value.replace(/ /g, "")
     const leasingTerm = document
       .getElementById("leasing-term")
-      .value.replace(/ /g, "");
+      .value.replace(/ /g, "")
     const finalSum = document
       .getElementById("total-sum")
-      .innerText.replace(/ /g, "");
+      .innerText.replace(/ /g, "")
     const feePerMounth = document
       .getElementById("fee-per-mounth")
-      .innerText.replace(/ /g, "");
+      .innerText.replace(/ /g, "")
     const data = {
       avtoPrice: avtoPrice,
       initialFee: initialFee,
       leasingTerm: leasingTerm,
       finalSum: finalSum,
       feePerMounth: feePerMounth,
-    };
-    alert(JSON.stringify(data));
-    calculatorForm.classList.add("_disabled");
-    calculatorForm.submit();
-  }, 6000);
-});
+    }
+    calculatorForm.classList.remove("_sending")
+    alert(JSON.stringify(data))
+  }, 5000)
+})
